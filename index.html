@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget calculator</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" 
+integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+<style>
+    body {
+        background: url(back-budget.jpg);
+        background-repeat: none;
+        background-size: cover;
+    }
+    .form1 {
+        background: linear-gradient(to bottom left,#614040,black,#614040);
+        box-shadow: 5px 10px 10px 5px #614040;
+    } 
+    .form1 {
+        margin-bottom: 10%;
+    }
+    #name,#total,#education,#medical,#grocery,#shopping,#saving {
+        background-color: transparent;
+        border: none;
+    }
+</style>
+</head>
+<body>
+<center>
+    <form class="form1 w-75 text-start p-5 mt-5 text-white form-control" id="form1">
+        <h2 class="heading text-center mb-5">Budget Calculator</h2>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label ">Enter your name</label>
+                <input type="text" class="form-control p-2" id="Input1" >
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Enter your salary (In Rupees)</label>
+                <input type="text" class="form-control p-2" id="Input2" >
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Enter other income (In Rupees)</label>
+                <input type="text" class="form-control p-2" id="Input3" >
+            </div>
+            <div class="mb-3 mt-5">
+                <button type="button" class="btn btn-lg btn-info" onclick="find()">Find Budget</button>
+            </div>
+    </form>
+
+
+    <form class="form1 w-50 text-start p-5 mt-5 text-white form-control" id="form2">
+        <h2 class="heading text-center mb-5">Your Monthly Budget</h2>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Your name</label>
+                <input type="text" class="form-control p-2  text-warning fs-5 fw-bold" id="name" >
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Your Total income (In Rupees)</label>
+                <input type="number" class="form-control p-2  text-warning fs-5  fw-bold" id="total" >
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Your Education Budget (In Rupees)</label>
+                <input type="text" class="form-control p-2 text-warning fs-5  fw-bold" id="education" >
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Your Medical Budget (In Rupees)</label>
+                <input type="text" class="form-control p-2 text-warning fs-5  fw-bold" id="medical" >
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Your Grocery Budget (In Rupees)</label>
+                <input type="text" class="form-control p-2 text-warning fs-5  fw-bold" id="grocery" >
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Your shopping Budget (In Rupees)</label>
+                <input type="text" class="form-control p-2 text-warning fs-5  fw-bold" id="shopping" >
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Your Necessary Saving (In Rupees)</label>
+                <input type="text" class="form-control p-2 text-warning fs-5  fw-bold" id="saving" >
+            </div>
+            <a  href="#form1">Back</a>         
+    </form>
+
+
+
+    <script>
+            let name = document.getElementById("Input1");   
+            let salary = document.getElementById("Input2");
+            let income = document.getElementById("Input3");
+
+        function find() {
+            document.getElementById("form2").scrollIntoView({behavior:'smooth'});
+
+            document.getElementById("name").value=name.value;
+            
+            let total = parseInt(salary.value) + parseInt(income.value);
+            document.getElementById("total").value = total;
+           
+            let education = total*25/100;
+            document.getElementById("education").value = education;
+
+            let medical = total*20/100;
+            document.getElementById("medical").value = medical;
+
+            let grocery = total*20/100;
+            document.getElementById("grocery").value = grocery;
+
+            let shopping = total*15/100;
+            document.getElementById("shopping").value = shopping;
+
+            let saving = total*20/100;
+            document.getElementById("saving").value = saving;
+            
+            
+        }
+    </script>
+</center>
+</body>
+</html>
